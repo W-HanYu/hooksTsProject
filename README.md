@@ -53,10 +53,30 @@ pageage.json配置
     },
   ```
 
-4、[安装commitlint](https://github.com/conventional-changelog/commitlint)
+4、[安装commitlint](https://github.com/conventional-changelog/commitlint) 、[文档地址](https://commitlint.js.org/#/guides-local-setup)
 
 - `npm install --save-dev @commitlint/{cli,config-conventional}`
 
 - 控制台运行 `echo "module.exports = {extends: ['@commitlint/config-conventional']};" > commitlint.config.js`
 
-- 
+- [commitlint提交规则：@commitlint/config-conventional](https://github.com/conventional-changelog/commitlint/tree/master/@commitlint/config-conventional)
+  - 提交规范
+  ```js
+  [
+    'build',
+    'chore',
+    'ci',
+    'docs',
+    'feat',
+    'fix',
+    'perf',
+    'refactor',
+    'revert',
+    'style',
+    'test'
+  ];
+
+  echo "foo: some message" # fails
+  echo "fix: some message" # passes
+  例如增加了commitlint：ci: add commitlint
+```
