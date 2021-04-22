@@ -1,4 +1,4 @@
-# React17 + React Hook + TS4
+# React17 + React Hook + TS4 + json-server
 ## 创建TS项目
 npx create-react-app [name] --template typescript
 
@@ -60,23 +60,37 @@ pageage.json配置
 - 控制台运行 `echo "module.exports = {extends: ['@commitlint/config-conventional']};" > commitlint.config.js`
 
 - [commitlint提交规则：@commitlint/config-conventional](https://github.com/conventional-changelog/commitlint/tree/master/@commitlint/config-conventional)
-  - 提交规范
   ```js
+  // 提交规范
   [
     'build',
-    'chore',
+    'chore', // 构建过程或辅助工具的变动
     'ci',
-    'docs',
-    'feat',
-    'fix',
+    'docs', // 文档（documentation）
+    'feat', // 新功能（feature）
+    'fix', // 修补bug
     'perf',
-    'refactor',
+    'refactor', // 重构（即不是新增功能，也不是修改bug的代码变动）
     'revert',
-    'style',
-    'test'
+    'style', // 格式（不影响代码运行的变动）
+    'test' // 增加测试
   ];
-
   echo "foo: some message" # fails
   echo "fix: some message" # passes
-  例如增加了commitlint：ci: add commitlint
-```
+
+  // 例如增加了commitlint：
+  ci: add commitlint
+  
+  ```
+
+5、[安装json-server](https://github.com/typicode/json-server)
+  `npm i json-server -g`
+
+  完全遵循reset api风格，可在postman里做增删改查
+  - 根目录新建一个__json-server-mock__/db.json
+  - 启动json-server `json-server --watch db.json`
+  - package.json 增加一项script：
+  
+    `"json-server": "json-server __json-server-mock__/db.json --watch"`
+
+    执行`npm run json-server`启动试试
