@@ -17,7 +17,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          commit提交格式化测试
         </a>
       </header>
     </div>
