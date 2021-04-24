@@ -23,6 +23,8 @@ npm start
     ```
 2、[Pre-commit Hook](https://prettier.io/docs/en/precommit.html)
 
+> 注意使用husky之前，必须先将代码放到git 仓库中，否则本地没有.git文件，就没有地方去继承钩子了。
+
 当您想与Prettier一起使用其他代码质量工具（例如ESLint，Stylelint等）或需要支持部分暂存文件（git add --patch）时很有用。
 
 devDependencies在继续操作之前，请确保已安装Prettier并在其中。
