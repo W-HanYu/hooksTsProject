@@ -1,4 +1,3 @@
-import React from "react"
 export const SerachPanel = ({ users, param, setParam }) => {
 
   return <form>
@@ -13,7 +12,7 @@ export const SerachPanel = ({ users, param, setParam }) => {
       })}>
         <option value={''}>负责人</option>
         {
-          users.map((user, index) => <option key={index} value={user.id}>{user.name}</option>)
+          users.map(user => <option key={user.name} value={user.id}>{user.name}</option>)
         }
       </select>
     </div>

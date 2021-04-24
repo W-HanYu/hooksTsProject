@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { SerachPanel } from './search-panel'
 import { List } from './list'
 import qs from 'qs'
