@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { SerachPanel } from './search-panel'
 import { List } from './list'
 import qs from 'qs'
-import { cleanObject } from 'utils/utils'
+import { cleanObject, useMount, userDebounce } from 'utils/utils'
 const api = process.env.REACT_APP_API_URL
 
 export const ProjectListScreen = () => {
@@ -13,17 +13,18 @@ export const ProjectListScreen = () => {
     personId: ''
   })
   const [list, setList] = useState([])
-  
+  const debounceParam = userDebounce(param, 1000)
+
   useEffect(() => {
-    fetch(`${api}/projects?${qs.stringify(cleanObject(param))}`).then(async response => {
+    fetch(`${api}/projects?${qs.stringify(cleanObject(debounceParam))}`).then(async response => {
       if (response.ok) {
         setList(await response.json())
       }
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [param])
+  }, [debounceParam])
 
-  useEffect(() => {
+  useMount(() => {
     fetch(`${api}/users`).then(async response => {
       console.log('response', response)
       if (response.ok) {
@@ -31,7 +32,7 @@ export const ProjectListScreen = () => {
       }
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  })
 
   return <div>
     <SerachPanel users={users} param={param} setParam={setParam}></SerachPanel>

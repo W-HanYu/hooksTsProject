@@ -1,3 +1,6 @@
+/* eslint-disable react-hooks/rules-of-hooks */
+import { useEffect, useState } from 'react'
+
 // export const isFalsy = (value) => value === 0 ? true : !!value
 export const isFalsy = (value) => value === 0 ? false : !value
 
@@ -11,4 +14,20 @@ export const cleanObject = (object) => {
     }
   })
   return result
+}
+
+export const useMount = (callBack) => {
+  useEffect(() => {
+    callBack()
+  }, [])
+}
+export const userDebounce = (value, delay) => {
+  const [deDebouncedValue, setDebouncedValue] = useState(value)
+
+  useEffect(() => {
+    const timeOut = setTimeout(() => setDebouncedValue(value), delay)
+    return () => clearTimeout(timeOut)
+  }, [value, delay])
+  
+  return deDebouncedValue
 }
