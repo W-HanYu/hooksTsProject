@@ -2,7 +2,10 @@ import { useEffect, useState } from 'react'
 import { SearchPanel } from './search-panel'
 import { List } from './list'
 import qs from 'qs'
-import { cleanObject, useMount, userDebounce } from 'utils/utils'
+import { cleanObject, useMount, useDebounce } from 'utils/utils'
+
+// 使用 JS 的同学，大部分的错误都是在runtime（运行时）的时候发现的
+// 我们希望在静态代码中就能找到其中一些错误欧 ---》 强类型
 const api = process.env.REACT_APP_API_URL
 
 export const ProjectListScreen = () => {
@@ -13,7 +16,7 @@ export const ProjectListScreen = () => {
     personId: ''
   })
   const [list, setList] = useState([])
-  const debounceParam = userDebounce(param, 1000)
+  const debounceParam = useDebounce(param, 1000)
 
   useEffect(() => {
     fetch(`${api}/projects?${qs.stringify(cleanObject(debounceParam))}`).then(async response => {
