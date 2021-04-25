@@ -27,6 +27,7 @@ module.exports = {
     'react-hooks'
   ],
   'rules': {
+    // 'no-undef': 0,
     'react-hooks/rules-of-hooks': 'off',
     'react-hooks/exhaustive-deps': 'off',
     // 'react-hooks/exhaustive-deps': ['warn', {
