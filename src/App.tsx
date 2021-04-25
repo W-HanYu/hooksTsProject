@@ -1,8 +1,8 @@
 // npx mrm lint-staged
-import React from "react";
+import React from 'react';
 // import logo from "./logo.svg";
 import { ProjectListScreen } from 'screens/project-list'
-import "./App.css";
+import './App.css';
 
 function App () {
   return (

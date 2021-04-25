@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import { useEffect, useState } from 'react'
 
 // export const isFalsy = (value) => value === 0 ? true : !!value
@@ -28,6 +27,6 @@ export const userDebounce = (value, delay) => {
     const timeOut = setTimeout(() => setDebouncedValue(value), delay)
     return () => clearTimeout(timeOut)
   }, [value, delay])
-  
+
   return deDebouncedValue
 }

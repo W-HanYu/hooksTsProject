@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react"
-import { SerachPanel } from './search-panel'
+import { useEffect, useState } from 'react'
+import { SearchPanel } from './search-panel'
 import { List } from './list'
 import qs from 'qs'
 import { cleanObject, useMount, userDebounce } from 'utils/utils'
@@ -35,7 +35,7 @@ export const ProjectListScreen = () => {
   })
 
   return <div>
-    <SerachPanel users={users} param={param} setParam={setParam}></SerachPanel>
+    <SearchPanel users={users} param={param} setParam={setParam}></SearchPanel>
     <List users={users} list={list}></List>
   </div>
 }

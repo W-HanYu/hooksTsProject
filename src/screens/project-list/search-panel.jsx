@@ -1,4 +1,4 @@
-export const SerachPanel = ({ users, param, setParam }) => {
+export const SearchPanel = ({ users, param, setParam }) => {
 
   return <form>
     <div>
