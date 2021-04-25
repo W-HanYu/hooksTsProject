@@ -24,14 +24,12 @@ export const useMount = (callBack: () => void) => {
     callBack()
   }, [])
 }
-// eslint-disable-next-line no-undef
-export const useDebounce = (value: unknown, delay?: number) => {
+export const useDebounce = <V> (value: V, delay?: number) => {
   const [deDebouncedValue, setDebouncedValue] = useState(value)
 
   useEffect(() => {
     const timeOut = setTimeout(() => setDebouncedValue(value), delay)
     return () => clearTimeout(timeOut)
   }, [value, delay])
-
   return deDebouncedValue
 }
