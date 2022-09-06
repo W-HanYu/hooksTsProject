@@ -1,4 +1,4 @@
-# React17 + React Hook + TS4 + json-server
+# React18 + React Hook + TS4 + json-server
 ## 创建TS项目
 npx create-react-app [name] --template typescript
 
